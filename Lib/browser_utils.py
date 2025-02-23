@@ -83,3 +83,20 @@ class HighlightPageWrapper:
         이를 통해 page.goto()와 같은 호출이 직접적으로 가능해집니다.
         """
         return getattr(self._page, name)
+    
+custom_devices = {
+    "Galaxy S24": {
+        "user_agent": "Mozilla/5.0 (Linux; Android 14; SM-S921B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+        "viewport": {"width": 412, "height": 915},
+        "device_scale_factor": 3,
+        "is_mobile": True,
+        "has_touch": True,
+    },
+    "iPhone 16": {
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/537.36",
+        "viewport": {"width": 430, "height": 932},
+        "device_scale_factor": 3,
+        "is_mobile": True,
+        "has_touch": True,
+    }
+}
