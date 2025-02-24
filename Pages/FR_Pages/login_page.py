@@ -9,18 +9,15 @@ def login(page):
     dev_front_password = LOGIN_CREDENTIALS["fr_password"] # common_utils.py "fr_password": os.getenv("Dev_fr_password") 참조
 
     # 로그인 요소 정의 및 동작
-    page.click_locator('#onetrust-accept-btn-handler')
-    page.click_locator('a.header_signIn')
+    page.locator('#onetrust-accept-btn-handler').click()
+    page.locator('a.header_signIn').click()
     
     username_input = page.locator('input[name="userName"]') # fill은 채우기만 해서 이벤트가 트리거가 안됨
     username_input.type(def_front_username)
     password_input = page.locator('input[name="password"]')
     password_input.type(dev_front_password)
     
-    page.click_locator('.signin_btn')
+    page.locator('.signin_btn').click()
 
-    # 또는 특정 URL을 기다릴 수도 있습니다
-    page.wait_for_url('https://dev-www.fashiongo.net/')
-
-    # 로딩 상태가 완료될 때까지 기다림
-    # page.wait_for_load_state()
+    # 페이지 로딩 상태를 기다림
+    page.wait_for_load_state('networkidle')

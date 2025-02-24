@@ -5,4 +5,4 @@ from Lib.common_pages import dev_openpack1_url
 # Pages/front openpack order
 def va_order_list_page(page):
 
-   page.click_locator('div[routerlink="/order/orders"]') # All orders 메뉴
+   page.locator('div[routerlink="/order/orders"]').click() # All orders 메뉴

@@ -25,7 +25,7 @@ def checkout_process(page):
     print(f"Success: {expected_url} matched the expected value!")
 
     # Cart > Proceed To Checkout 버튼 클릭
-    page.click_locator('.btn-dark_grey.btn-checkoutAll.nclick')
+    page.locator('.btn-dark_grey.btn-checkoutAll.nclick').click()
 
     # You Have Promotions! 팝업
     page.locator('button.btn-sure', has_text="Continue To Checkout").click()
@@ -43,16 +43,16 @@ def checkout_process(page):
     Checkout Step2_Payment
     '''
     # Save & Continue 버튼 클릭
-    page.click_locator('.btn-dark_grey.btn-goToReview')
+    page.locator('.btn-dark_grey.btn-goToReview').click()
 
     '''
     Checkout Step3_Order Review
     '''
     # Submit Order 버튼 클릭
-    page.click_locator('.btn-dark_grey.btn-checkout')
+    page.locator('.btn-dark_grey.btn-checkout').click()
 
-    # 잠시 대기 (3초 대기)
-    page.wait_for_timeout(3000)
+    # 페이지 로딩 상태를 기다림
+    page.wait_for_load_state('networkidle')
 
     # 주문 완료 후 Thank you for your order! 텍스트가 포함된 h2 요소 확인
     page.wait_for_load_state()  # 페이지가 완전히 로드될 때까지 기다리기
@@ -73,13 +73,13 @@ def checkout_promotion(page):
     print(f"Success: {expected_url} matched the expected value!")
 
     # Cart > Select Vendor Promotions 버튼 클릭(Vendor ID 16502 Allium)
-    page.click_locator('button.btn-vendor.size-medium_blue[data-nclick-extra*="vid=16502"]')
+    page.locator('button.btn-vendor.size-medium_blue[data-nclick-extra*="vid=16502"]').click()
     # 60% Off & Free Shipping $50.00+ Orders
     apply_button = page.locator('button.btn-apply.nclick', has_text="Apply").nth(0) # 첫 번째 버튼 클릭
     apply_button.click()
 
     # Cart > Proceed To Checkout 버튼 클릭
-    page.click_locator('.btn-dark_grey.btn-checkoutAll.nclick')
+    page.locator('.btn-dark_grey.btn-checkoutAll.nclick').click()
 
     # You Have Promotions! 팝업
     # page.locator('button.btn-sure', has_text="Continue To Checkout").click()
@@ -97,16 +97,16 @@ def checkout_promotion(page):
     Checkout Step2_Payment
     '''
     # Save & Continue 버튼 클릭
-    page.click_locator('.btn-dark_grey.btn-goToReview')
+    page.locator('.btn-dark_grey.btn-goToReview').click()
 
     '''
     Checkout Step3_Order Review
     '''
     # Submit Order 버튼 클릭
-    page.click_locator('.btn-dark_grey.btn-checkout')
+    page.locator('.btn-dark_grey.btn-checkout').click()
 
-    # 잠시 대기 (3초 대기)
-    page.wait_for_timeout(3000)
+    # 페이지 로딩 상태를 기다림
+    page.wait_for_load_state('networkidle')
 
     # 주문 완료 후 Thank you for your order! 텍스트가 포함된 h2 요소 확인
     page.wait_for_load_state()  # 페이지가 완전히 로드될 때까지 기다리기

@@ -1,6 +1,6 @@
 # url
 dev_front_url = 'https://dev-www.fashiongo.net'
-dev_mobile_url = 'https://dev-mobile.fashiongo.net/'
+dev_mobile_url = 'https://dev-mobile.fashiongo.net/account'
 dev_va_url = 'https://dev-vendoradmin.fashiongo.net/'
 
 # Item

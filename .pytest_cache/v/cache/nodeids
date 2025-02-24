@@ -3,6 +3,8 @@
   "tests/FR_tests/test_orders.py::test_order_prepack",
   "tests/FR_tests/test_orders.py::test_order_promotion",
   "tests/MO_tests/test_mobile_orders.py::test_order_openpack",
+  "tests/MO_tests/test_mobile_orders.py::test_order_prepack",
+  "tests/MO_tests/test_mobile_orders.py::test_order_promotion",
   "tests/VA_tests/test_va_order_list.py::test_va_login",
   "tests/test_login.py::test_login",
   "tests/test_order_openpack.py::test_order_openpack",

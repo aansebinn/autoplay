@@ -15,16 +15,16 @@ def va_login(page):
     password_input.type(dev_va_password)
 
     # SECURE LOGIN
-    page.click_locator('.btn.btn-blue.width-100p.btn-login')
+    page.locator('.btn.btn-blue.width-100p.btn-login').click()
 
     # FG Free Shipping 팝업 x버튼
-    page.click_locator('i.modal-close-btn')
+    page.locator('i.modal-close-btn').click()
 
     # FG Free Shipping 팝업2 x버튼
-    page.click_locator('i.modal-close-btn')
+    page.locator('i.modal-close-btn').click()
 
-    # 또는 특정 URL을 기다릴 수도 있습니다
-    page.wait_for_url('https://dev-vendoradmin.fashiongo.net/#/home/')
+    # 페이지 로딩 상태를 기다림
+    page.wait_for_load_state('networkidle')
 
     # 로딩 상태가 완료될 때까지 기다림
     # page.wait_for_load_state()
