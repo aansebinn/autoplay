@@ -44,6 +44,31 @@ class HighlightPageWrapper:
         else:
             print(f"{selector} not found")
         return locator
+    
+    def locator_popup(self, selector, *args, **kwargs):
+        """
+        locator 호출 시 자동으로 하이라이트
+        *args는 주로 인수가 여러 개일 수 있는 경우에 사용, 
+        **kwargs는 키워드 인수로 전달된 값을 받아서 유연하게 처리
+        """
+        locator = self._page.locator(selector, *args, **kwargs)
+        self._page.evaluate("""
+        (selector) => {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.style.border = '2px solid red';  // 빨간색 테두리 추가
+                setTimeout(() => {
+                    element.style.border = '';  // 일정 시간 후 테두리 제거
+                }, 1000);
+            }
+        }
+    """, selector)
+               
+        if locator.count() == 0: # 요소가 0이 아니면
+            print(f"{selector} not found, skipping.")
+            return self._page.locator("body")  # 빈 요소 반환하여 skip하기
+
+        return locator
 
     def wait_for_load_state(self, *args, **kwargs):
         """

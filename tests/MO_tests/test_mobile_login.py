@@ -1,6 +1,6 @@
 import pytest
 from Lib.browser_utils import lunch_browser, close_browser, HighlightPageWrapper, custom_devices
-from Pages.MO_Pages.mobile_login_page import login
+from MO_Pages.mobile_login_page import login
 from Lib.common_pages import dev_front_url, dev_mobile_url
 
 @pytest.fixture(scope="module")

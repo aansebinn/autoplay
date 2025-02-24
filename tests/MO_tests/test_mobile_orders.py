@@ -1,5 +1,5 @@
 import pytest
-from Pages.MO_Pages.mobile_order_openpack_page import mobile_order_openpack
+from MO_Pages.mobile_order_openpack_page import mobile_order_openpack
 from test_mobile_login import login_fixture
 
 def test_order_openpack(login_fixture):

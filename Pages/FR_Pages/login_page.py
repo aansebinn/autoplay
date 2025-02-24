@@ -11,6 +11,8 @@ def login(page):
     # 로그인 요소 정의 및 동작
     page.locator('#onetrust-accept-btn-handler').click()
     page.locator('a.header_signIn').click()
+    # 3초 대기
+    page.wait_for_timeout(3000)
     
     username_input = page.locator('input[name="userName"]') # fill은 채우기만 해서 이벤트가 트리거가 안됨
     username_input.type(def_front_username)
@@ -21,3 +23,6 @@ def login(page):
 
     # 페이지 로딩 상태를 기다림
     page.wait_for_load_state('networkidle')
+
+    # Needs Attention 팝업 24시간 안보이기( # 'for="personal-2"' 속성으로 label을 클릭)
+    page.locator_popup('label[for="personal-2"]').last.click()

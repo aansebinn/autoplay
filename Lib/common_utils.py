@@ -7,10 +7,12 @@ load_dotenv()
 
 # 공통 환경 변수(전역 변수로 정의)
 LOGIN_CREDENTIALS = {
-    "fr_username": os.getenv("Dev_fr_username"),
-    "fr_password": os.getenv("Dev_fr_password"),
-    "va_username" : os.getenv("Dev_va_username"),
-    "va_password" : os.getenv("Dev_va_password"),
+    "fr_username": os.getenv("env_fr_username"),
+    "fr_password": os.getenv("env_fr_password"),
+    "va_username": os.getenv("env_va_username"),
+    "va_password": os.getenv("env_va_password"),
+    "mo_username": os.getenv("env_mo_username"),
+    "mo_password": os.getenv("env_mo_password"),
 }
 
 def checkout_process(page):

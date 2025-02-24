@@ -25,6 +25,3 @@ def va_login(page):
 
     # 페이지 로딩 상태를 기다림
     page.wait_for_load_state('networkidle')
-
-    # 로딩 상태가 완료될 때까지 기다림
-    # page.wait_for_load_state()
