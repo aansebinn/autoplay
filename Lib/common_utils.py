@@ -30,7 +30,7 @@ def checkout_process(page):
     page.locator('.btn-dark_grey.btn-checkoutAll.nclick').click()
 
     # You Have Promotions! 팝업
-    page.locator('button.btn-sure', has_text="Continue To Checkout").click()
+    page.locator_popup('button.btn-sure', has_text="Continue To Checkout").click()
 
     '''
     Checkout Step1_Shipping
@@ -39,7 +39,7 @@ def checkout_process(page):
     page.locator('.btn-dark_grey.btn-goToPayment').click()
 
     ## Verify Your Address 팝업
-    page.locator('.common-btn.c-black', has_text="Keep This Address").click()
+    page.locator_popup('.common-btn.c-black', has_text="Keep This Address").click()
 
     '''
     Checkout Step2_Payment
@@ -53,11 +53,8 @@ def checkout_process(page):
     # Submit Order 버튼 클릭
     page.locator('.btn-dark_grey.btn-checkout').click()
 
-    # 페이지 로딩 상태를 기다림
-    page.wait_for_load_state('networkidle')
-
     # 주문 완료 후 Thank you for your order! 텍스트가 포함된 h2 요소 확인
-    page.wait_for_load_state()  # 페이지가 완전히 로드될 때까지 기다리기
+    page.wait_for_load_state('networkidle')  # 페이지가 완전히 로드될 때까지 기다리기
     if page.locator('h2.order-title').count() > 0:  # h2 태그의 order-title 클래스가 1개 이상 있으면 성공
         print("Order successful! Test passed.")
     else:
@@ -84,7 +81,7 @@ def checkout_promotion(page):
     page.locator('.btn-dark_grey.btn-checkoutAll.nclick').click()
 
     # You Have Promotions! 팝업
-    # page.locator('button.btn-sure', has_text="Continue To Checkout").click()
+    page.locator_popup('button.btn-sure', has_text="Continue To Checkout").click()
 
     '''
     Checkout Step1_Shipping
@@ -107,12 +104,49 @@ def checkout_promotion(page):
     # Submit Order 버튼 클릭
     page.locator('.btn-dark_grey.btn-checkout').click()
 
-    # 페이지 로딩 상태를 기다림
-    page.wait_for_load_state('networkidle')
-
     # 주문 완료 후 Thank you for your order! 텍스트가 포함된 h2 요소 확인
-    page.wait_for_load_state()  # 페이지가 완전히 로드될 때까지 기다리기
+    page.wait_for_load_state('networkidle')  # 페이지가 완전히 로드될 때까지 기다리기
     if page.getByText("Thank you for your order!").count() > 0:  # h2 태그의 order-title 클래스 1개 이상 있으면 성공
         print("Order successful! Test passed.")
     else:
         print("Order not found! Test failed.")
+
+
+def MO_checkout(page):
+    '''
+    모바일 checkout 함수, Cart 부터 시작
+    '''
+    # 페이지 로딩 상태를 기다림
+    page.wait_for_load_state('networkidle')
+
+    # Shopping Bag > Checkout All Vendor 버튼
+    page.locator('button.checkout-btn.nclick').click()
+
+    '''
+    Checkout Step1_Shipping
+    '''
+    # Save & Continue
+    page.locator('button.base-btn.primary.medium.ng-star-inserted').click()
+
+    '''
+    Checkout Step2_Payment
+    '''
+    # Save & Continue
+    page.locator('button.base-btn.primary.medium.ng-star-inserted').click()
+
+    # Backup Card 팝업 > No thanks 선택
+    page.locator_popup('button.data-nclick-name.checkout.paymentinfo.nothanks').click()
+
+    '''
+    Checkout Step3_Order Review
+    '''
+    # Submit Order
+    page.locator('button.base-btn.primary.medium.ng-star-inserted').click()
+
+
+    # 주문 완료 후 Thank you for your order! 텍스트가 포함된 h2 요소 확인
+    page.wait_for_load_state('networkidle') # 페이지 로딩 상태를 기다림
+    if page.locator('h3.ttl_h3.blue_ttl').count() > 0:  # h2 태그의 order-title 클래스가 1개 이상 있으면 성공
+        print("Thank you for your order! Test passed.")
+    else:
+        print("Thank you for your order! Test failed.")

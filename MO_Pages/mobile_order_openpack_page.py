@@ -1,6 +1,6 @@
 import random # 랜덤함수 추가
 from Lib.browser_utils import HighlightPageWrapper
-from Lib.common_utils import checkout_process
+from Lib.common_utils import MO_checkout
 from Lib.common_pages import dev_mobile_openpack1_url
 
 # Pages/front openpack order
@@ -16,12 +16,15 @@ def mobile_order_openpack(page):
     item_input1 = page.locator('input.num_input.ng-untouched.ng-pristine.ng-valid')
     random_quantity = random.randint(1,3) # 1 ~ 3사이 랜덤값
     item_input1.first.type(str(random_quantity)) # type 랜덤값 입력
-
+    
     # Add 버튼
-    page.locator('button.btn-base.black').click()
+    page.locator('button.btn-base.black').click() 
 
     # Add To Shopping BAG 버튼 클릭
-    page.locator('button.btn_add_bag.nclick').click()
+    page.locator('button.btn_add_bag.nclick').first.click(force=True) # 강제로 클릭 확인 필요, 실제 카트에 담기지 않음
+
+     # 3초 대기
+    page.wait_for_timeout(3000)
 
     # 페이지 로딩 상태를 기다림
     page.wait_for_load_state('networkidle')
@@ -30,4 +33,4 @@ def mobile_order_openpack(page):
     page.locator('ion-tab-button span.icon.bag').click()
 
     # checkout_process 호출
-    checkout_process(page)
+    MO_checkout(page)
