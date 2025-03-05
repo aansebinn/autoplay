@@ -33,5 +33,8 @@ def login(page):
     # 페이지 로딩 상태를 기다림(로그인 후 로딩 딜레이 있어 조건 추가)
     page.wait_for_load_state('networkidle')
 
+    # App 배너 닫기
+    page.locator_popup('a.close-get-app-bnr').click()
+
     # Needs Attention 팝업 24시간 안보이기( # 'for="personal-2"' 속성으로 label을 클릭)
     page.locator_popup('label[for="personal-2"]').last.click()

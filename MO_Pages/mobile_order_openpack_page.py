@@ -21,7 +21,7 @@ def mobile_order_openpack(page):
     page.locator('button.btn-base.black').click() 
 
     # Add To Shopping BAG 버튼 클릭
-    page.locator('button.btn_add_bag.nclick').first.click(force=True) # 강제로 클릭 확인 필요, 실제 카트에 담기지 않음
+    page.locator('button.btn_add_bag.nclick', has_text="Add to shopping bag").click(force = True) # App banner가 있어서 로그인 후 닫기하고, 강제클릭하여 해결
 
      # 3초 대기
     page.wait_for_timeout(3000)
