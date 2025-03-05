@@ -135,7 +135,7 @@ def MO_checkout(page):
     page.locator('button.base-btn.primary.medium.ng-star-inserted').click()
 
     # Backup Card 팝업 > No thanks 선택
-    page.locator_popup('button.data-nclick-name.checkout.paymentinfo.nothanks').click()
+    page.locator_popup('button.base-btn.primary-line.nclick').click()
 
     '''
     Checkout Step3_Order Review
@@ -149,4 +149,4 @@ def MO_checkout(page):
     if page.locator('h3.ttl_h3.blue_ttl').count() > 0:  # h2 태그의 order-title 클래스가 1개 이상 있으면 성공
         print("Thank you for your order! Test passed.")
     else:
-        print("Thank you for your order! Test failed.")
+        print("Order test failed.")

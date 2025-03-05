@@ -5,7 +5,6 @@
   "tests/FR_tests/test_orders.py::test_order_promotion": true,
   "tests/test_mobile_login.py": true,
   "tests/test_mobile_orders.py": true,
-  "tests/MO_tests/test_mobile_orders.py::test_order_openpack": true,
   "tests/MO_tests/test_mobile_orders.py::test_order_prepack": true,
   "tests/MO_tests/test_mobile_orders.py::test_order_promotion": true,
   "tests/FR_tests/test_orders.py::test_order_openpack": true
