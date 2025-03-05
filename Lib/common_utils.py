@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-from Pages.FR_Pages.login_page import login
 
 # .env 파일 로드
 load_dotenv()

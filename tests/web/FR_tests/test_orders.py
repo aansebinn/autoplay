@@ -1,7 +1,7 @@
 import pytest
-from Pages.FR_Pages.order_openpack_page import order_openpack
-from Pages.FR_Pages.order_prepack_page import order_prepack
-from Pages.FR_Pages.order_promotion_page import order_promotion
+from Pages.web.FR_Pages.order_openpack_page import order_openpack
+from Pages.web.FR_Pages.order_prepack_page import order_prepack
+from Pages.web.FR_Pages.order_promotion_page import order_promotion
 from test_login import login_fixture
 
 def test_order_openpack(login_fixture):

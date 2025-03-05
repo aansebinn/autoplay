@@ -7,5 +7,10 @@
   "tests/test_mobile_orders.py": true,
   "tests/MO_tests/test_mobile_orders.py::test_order_prepack": true,
   "tests/MO_tests/test_mobile_orders.py::test_order_promotion": true,
-  "tests/FR_tests/test_orders.py::test_order_openpack": true
+  "tests/FR_tests/test_orders.py::test_order_openpack": true,
+  "tests/web/VA_tests/test_va_order_list.py::test_va_login": true,
+  "tests/mobile/MO_tests/test_mobile_orders.py::test_order_openpack": true,
+  "tests/web/FR_tests/test_orders.py::test_order_openpack": true,
+  "tests/web/FR_tests/test_orders.py::test_order_prepack": true,
+  "tests/web/FR_tests/test_orders.py::test_order_promotion": true
 }

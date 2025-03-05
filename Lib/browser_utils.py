@@ -64,7 +64,7 @@ class HighlightPageWrapper:
         }
     """, selector)
                
-        if locator.count() == 0: # 요소가 0이 아니면
+        if locator.count() == 0: # 요소가 0개로 없으면
             print(f"{selector} not found, skipping.")
             return self._page.locator("body")  # 빈 요소 반환하여 skip하기
 

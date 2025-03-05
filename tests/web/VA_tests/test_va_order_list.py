@@ -1,5 +1,5 @@
 import pytest
-from Pages.VA_Pages.va_order_list import va_order_list_page
+from Pages.web.VA_Pages.va_order_list import va_order_list_page
 from test_va_login import login_fixture
 
 def test_va_login(login_fixture):
