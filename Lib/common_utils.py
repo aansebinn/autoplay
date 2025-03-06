@@ -37,7 +37,7 @@ def checkout_process(page):
     # Save & Continue 버튼 클릭
     page.locator('.btn-dark_grey.btn-goToPayment').click()
 
-    ## Verify Your Address 팝업
+    # Verify Your Address 팝업
     page.locator_popup('.common-btn.c-black', has_text="Keep This Address").click()
 
     '''
@@ -73,14 +73,13 @@ def checkout_promotion(page):
     # Cart > Select Vendor Promotions 버튼 클릭(Vendor ID 16502 Allium)
     page.locator('button.btn-vendor.size-medium_blue[data-nclick-extra*="vid=16502"]').click()
     # 60% Off & Free Shipping $50.00+ Orders
-    apply_button = page.locator('button.btn-apply.nclick', has_text="Apply").nth(0) # 첫 번째 버튼 클릭
-    apply_button.click()
+    page.locator('button.btn-coupon-apply').first.click() # 첫번째 버튼 클릭
 
     # Cart > Proceed To Checkout 버튼 클릭
     page.locator('.btn-dark_grey.btn-checkoutAll.nclick').click()
 
     # You Have Promotions! 팝업
-    page.locator_popup('button.btn-sure', has_text="Continue To Checkout").click()
+    # page.locator_popup('button.btn-sure', has_text="Continue To Checkout").click()
 
     '''
     Checkout Step1_Shipping
@@ -88,8 +87,8 @@ def checkout_promotion(page):
     # Save & Continue 버튼 클릭
     page.locator('.btn-dark_grey.btn-goToPayment').click()
 
-    ## Verify Your Address 팝업
-    page.locator('.common-btn.c-black', has_text="Keep This Address").click()
+    # Verify Your Address 팝업
+    page.locator_popup('.common-btn.c-black', has_text="Keep This Address").click()
 
     '''
     Checkout Step2_Payment
@@ -105,11 +104,10 @@ def checkout_promotion(page):
 
     # 주문 완료 후 Thank you for your order! 텍스트가 포함된 h2 요소 확인
     page.wait_for_load_state('networkidle')  # 페이지가 완전히 로드될 때까지 기다리기
-    if page.getByText("Thank you for your order!").count() > 0:  # h2 태그의 order-title 클래스 1개 이상 있으면 성공
+    if page.locator('h2.order-title').count() > 0:  # h2 태그의 order-title 클래스가 1개 이상 있으면 성공
         print("Order successful! Test passed.")
     else:
         print("Order not found! Test failed.")
-
 
 def MO_checkout(page):
     '''

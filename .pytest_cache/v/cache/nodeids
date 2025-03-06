@@ -6,9 +6,13 @@
   "tests/MO_tests/test_mobile_orders.py::test_order_prepack",
   "tests/MO_tests/test_mobile_orders.py::test_order_promotion",
   "tests/VA_tests/test_va_order_list.py::test_va_login",
+  "tests/mobile/MO_tests/test_mobile_orders.py::test_order_openpack",
   "tests/test_login.py::test_login",
   "tests/test_order_openpack.py::test_order_openpack",
   "tests/test_orders.py::test_order_openpack",
   "tests/test_orders.py::test_order_prepack",
-  "tests/test_orders.py::test_order_promotion"
+  "tests/test_orders.py::test_order_promotion",
+  "tests/web/FR_tests/test_orders.py::test_order_openpack",
+  "tests/web/FR_tests/test_orders.py::test_order_prepack",
+  "tests/web/FR_tests/test_orders.py::test_order_promotion"
 ]

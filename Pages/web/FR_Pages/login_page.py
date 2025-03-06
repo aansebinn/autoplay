@@ -22,7 +22,10 @@ def login(page):
     page.locator('.signin_btn').click()
 
     # 페이지 로딩 상태를 기다림
-    page.wait_for_load_state('networkidle')
+    # page.wait_for_load_state('networkidle')
+    
+    # 3초 대기
+    page.wait_for_timeout(3000)
 
     # Needs Attention 팝업 24시간 안보이기( # 'for="personal-2"' 속성으로 label을 클릭)
     page.locator_popup('label[for="personal-2"]').last.click()
