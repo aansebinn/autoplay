@@ -8,5 +8,11 @@
   "tests/MO_tests/test_mobile_orders.py::test_order_prepack": true,
   "tests/MO_tests/test_mobile_orders.py::test_order_promotion": true,
   "tests/FR_tests/test_orders.py::test_order_openpack": true,
-  "tests/web/VA_tests/test_va_order_list.py::test_va_login": true
+  "tests/web/VA_tests/test_va_order_list.py::test_va_login": true,
+  "tests/mobile/MO_tests/test_mobile_login.py": true,
+  "tests/mobile/MO_tests/test_mobile_orders.py": true,
+  "tests/web/FR_tests/test_login.py": true,
+  "tests/web/FR_tests/test_orders.py": true,
+  "tests/web/VA_tests/test_va_login.py": true,
+  "tests/web/VA_tests/test_va_order_list.py": true
 }
